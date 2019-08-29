@@ -11,7 +11,6 @@ public class ConvertPng : MonoBehaviour
 	//public int resHeight = 1080;
 
 	public RenderTexture rt;
-	public Texture2D tempTexture;
 
 	private void Update()
 	{
@@ -22,12 +21,33 @@ public class ConvertPng : MonoBehaviour
 		}
 	}
 
-	void Capture()
+	public void Capture()
 	{
 		Texture2D captureTexture = Texture2DGetRenderTexture(rt);
 
+		//byte[] data = captureTexture.EncodeToPNG();
+		byte[] data = captureTexture.EncodeToJPG();
+		//FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\texturePNG.png", FileMode.OpenOrCreate);
+		FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
+		
+
+
+		fs.Write(data, 0, data.Length);
+		fs.Close();
+		//Texture2D.DestroyImmediate(captureTexture, true);
+	}
+
+	public void Capture(RenderTexture equirect)
+	{
+		Texture2D captureTexture = Texture2DGetRenderTexture(equirect);
+
 		byte[] data = captureTexture.EncodeToPNG();
-		FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\texturePNG.png", FileMode.OpenOrCreate);
+		//byte[] data = captureTexture.EncodeToJPG();
+		//FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\texturePNG.png", FileMode.OpenOrCreate);
+		FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
+
+
+
 		fs.Write(data, 0, data.Length);
 		fs.Close();
 		//Texture2D.DestroyImmediate(captureTexture, true);

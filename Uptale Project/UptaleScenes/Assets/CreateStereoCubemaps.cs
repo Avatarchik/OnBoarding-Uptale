@@ -9,47 +9,57 @@ public class CreateStereoCubemaps : MonoBehaviour
 	public RenderTexture equirect;
 	public bool renderStereo = true;
 	public float stereoSeparation = 0.064f;
+	public ConvertPng convertPng;
 
 	void LateUpdate()
 	{
-		Camera cam = GetComponent<Camera>();
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			Debug.Log("Create Stereo Cubemap ...");
+			Camera cam = GetComponent<Camera>();
 
-		if (cam == null)
-		{
-			cam = GetComponentInParent<Camera>();
-		}
+			if (cam == null)
+			{
+				cam = GetComponentInParent<Camera>();
+			}
 
-		if (cam == null)
-		{
-			Debug.Log("stereo 360 capture node has no camera or parent camera");
-		}
+			if (cam == null)
+			{
+				Debug.Log("stereo 360 capture node has no camera or parent camera");
+			}
 
-		if (renderStereo)
-		{
-			cam.stereoSeparation = stereoSeparation;
-			cam.RenderToCubemap(cubemapLeft, 63, Camera.MonoOrStereoscopicEye.Left);
-			cam.RenderToCubemap(cubemapRight, 63, Camera.MonoOrStereoscopicEye.Right);
-		}
-		else
-		{
-			cam.RenderToCubemap(cubemapLeft, 63, Camera.MonoOrStereoscopicEye.Mono);
-		}
+			if (renderStereo)
+			{
+				//cam.stereoSeparation = stereoSeparation;
+				cam.RenderToCubemap(cubemapLeft, 63, Camera.MonoOrStereoscopicEye.Left);
+				cam.RenderToCubemap(cubemapRight, 63, Camera.MonoOrStereoscopicEye.Right);
+			}
+			else
+			{
+				cam.RenderToCubemap(cubemapLeft, 63, Camera.MonoOrStereoscopicEye.Mono);
+			}
 
-		//optional: convert cubemaps to equirect
+			//optional: convert cubemaps to equirect
 
-		if (equirect == null)
-		{
-			return;
-		}
+			if (equirect == null)
+			{
+				return;
+			}
 
-		if (renderStereo)
-		{
-			cubemapLeft.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Left);
-			cubemapRight.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Right);
+			if (renderStereo)
+			{
+				cubemapLeft.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Left);
+				cubemapRight.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Right);
+			}
+			else
+			{
+				cubemapLeft.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Mono);
+			}
 		}
-		else
+		if (Input.GetKeyDown(KeyCode.L))
 		{
-			cubemapLeft.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Mono);
+			Debug.Log("Screened");
+			convertPng.Capture(equirect);
 		}
 	}
 }
