@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  startOnAwake: 1
+  startOnAwake: 0
   captureTime: 35
   quitAfterCapture: 1
   _videoCaptures:

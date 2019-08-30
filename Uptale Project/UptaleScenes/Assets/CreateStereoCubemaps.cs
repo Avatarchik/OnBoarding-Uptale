@@ -30,7 +30,7 @@ public class CreateStereoCubemaps : MonoBehaviour
 
 			if (renderStereo)
 			{
-				//cam.stereoSeparation = stereoSeparation;
+				cam.stereoSeparation = stereoSeparation;
 				cam.RenderToCubemap(cubemapLeft, 63, Camera.MonoOrStereoscopicEye.Left);
 				cam.RenderToCubemap(cubemapRight, 63, Camera.MonoOrStereoscopicEye.Right);
 			}
