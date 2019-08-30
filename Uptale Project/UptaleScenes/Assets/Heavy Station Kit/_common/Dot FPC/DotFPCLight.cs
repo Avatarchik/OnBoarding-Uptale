@@ -5,7 +5,7 @@ public class DotFPCLight : MonoBehaviour {
 
 	private Light _light=null;
     private DotControlCenter ccInstance = null;
-    private KeyCode flashlightShortcut = KeyCode.L;
+	private KeyCode flashlightShortcut = KeyCode.U;
 
     void Start () {
 		_light = GetComponent<Light>();

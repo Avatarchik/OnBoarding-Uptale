@@ -1,0 +1,27 @@
+﻿-------------
+DOCUMENTATION - https://dotteam.xyz/pdf/Heavy_Station_Kit.pdf
+------------- 
+
+HEAVY STATION KIT
+
+------------------
+C O L O N Y   2.50
+------------------
+
+MAPPING
+To significantly reduce Drawcalls, most models were packaged into Themes. Each theme uses a single Material. Some UVs have a bit of free space, which has been reserved for future updates (thus adding new objects will not require additional materials).
+
+MODELING
+An amplified look and optimization for the old objects; new objects were added to expand Your opportunities for creative development. For triangle count please refer to the Documentation.
+
+TEXTURING
+Adventuring in the world of PBR, all the materials now possess Metallic maps, in addition to Albedo, Normal, Occlusion, and for some objects Emission, in sizes up to 4k, and are using PNG and TGA formats.
+PSD for GUI is included.
+
+SCRIPTING
+Earlier scripts have been corrected and expanded upon, and for widening the possibilities of the kit, new scripts have been created.
+
+
+© 2017 DotTeam
+https://dotteam.xyz
+info@dotteam.xyz
