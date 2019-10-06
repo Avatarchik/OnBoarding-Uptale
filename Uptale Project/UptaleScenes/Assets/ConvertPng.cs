@@ -27,14 +27,17 @@ public class ConvertPng : MonoBehaviour
 
 		//byte[] data = captureTexture.EncodeToPNG();
 		byte[] data = captureTexture.EncodeToJPG();
-		//FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\texturePNG.png", FileMode.OpenOrCreate);
-		FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
-		
+		FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\1Texture.png", FileMode.OpenOrCreate);
+		//FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
+		//FileStream fs = new FileStream(@"D:\UNITY\OnBoarding-Uptale\Uptale Project\screenshots", FileMode.OpenOrCreate);
+		//FileStream fs = new FileStream(@"D:\UNITY\ScreenshotsUptale", FileMode.OpenOrCreate);
+
 
 
 		fs.Write(data, 0, data.Length);
 		fs.Close();
 		//Texture2D.DestroyImmediate(captureTexture, true);
+		Debug.Log("PNG Image Created.");
 	}
 
 	public void Capture(RenderTexture equirect)
@@ -43,14 +46,15 @@ public class ConvertPng : MonoBehaviour
 
 		byte[] data = captureTexture.EncodeToPNG();
 		//byte[] data = captureTexture.EncodeToJPG();
-		//FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\texturePNG.png", FileMode.OpenOrCreate);
-		FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
-
+		FileStream fs = new FileStream(@"D:\UNITY\Uptale Project\UptaleScenes\Assets\screenshots\1Texture.png", FileMode.OpenOrCreate);
+		//FileStream fs = new FileStream(@"C:\Users\AVR360\Documents\Unity\Unity projects\OnBoarding-Uptale\Uptale Project\UptaleScenes\Assets\screenshots\newTexture.png", FileMode.OpenOrCreate);
+		//FileStream fs = new FileStream(@"D:\UNITY\ScreenshotsUptale\screenshots", FileMode.OpenOrCreate);
 
 
 		fs.Write(data, 0, data.Length);
 		fs.Close();
 		//Texture2D.DestroyImmediate(captureTexture, true);
+		Debug.Log("PNG Image Created.");
 	}
 
 	public Texture2D Texture2DGetRenderTexture(RenderTexture rt)

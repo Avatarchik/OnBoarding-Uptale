@@ -55,10 +55,12 @@ public class CreateStereoCubemaps : MonoBehaviour
 			{
 				cubemapLeft.ConvertToEquirect(equirect, Camera.MonoOrStereoscopicEye.Mono);
 			}
+			Debug.Log("Strero Map created.");
 		}
 		if (Input.GetKeyDown(KeyCode.L))
 		{
-			Debug.Log("Screened");
+			Debug.Log("Screened.");
+			Debug.Log("Create PNG Image.");
 			convertPng.Capture(equirect);
 		}
 	}
