@@ -6,6 +6,7 @@ public class CreatePNG : MonoBehaviour
 	public int imageWidth = 1024;
 	public bool saveAsJPEG = true;
 	public Camera cam;
+	public string cheminSauvegarde; //= "D:\\UNITY\\OnBoarding - Uptale\\screenshots";
 
 	void Update()
 	{
@@ -15,7 +16,7 @@ public class CreatePNG : MonoBehaviour
 			byte[] bytes = I360Render.Capture(imageWidth, saveAsJPEG, cam);
 			if (bytes != null)
 			{
-				string path = Path.Combine(@"D:\UNITY\OnBoarding - Uptale\screenshots", "360render" + (saveAsJPEG ? ".jpeg" : ".png"));
+				string path = Path.Combine(cheminSauvegarde, "360render" + (saveAsJPEG ? ".jpeg" : ".png"));
 				File.WriteAllBytes(path, bytes);
 				Debug.Log("360 render saved to " + path);
 			}
