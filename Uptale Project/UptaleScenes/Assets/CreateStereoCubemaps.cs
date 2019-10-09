@@ -13,7 +13,11 @@ public class CreateStereoCubemaps : MonoBehaviour
 
 	void LateUpdate()
 	{
-		if (Input.GetKeyDown(KeyCode.M))
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			Debug.Log("Visible");
+		}
+			if (Input.GetKeyDown(KeyCode.M))
 		{
 			Debug.Log("Create Stereo Cubemap ...");
 			Camera cam = GetComponent<Camera>();
